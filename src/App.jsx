@@ -15,6 +15,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import AboutPage from './pages/About';
+import Logo from './components/Logo';
 
 const drawerWidth = 240;
 
@@ -64,6 +66,7 @@ const App = (props) => {
 	const drawer = (
 		<div>
 			<div className={classes.toolbar} />
+			<Logo />
 			<Divider />
 			<List>
 				{['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
@@ -93,7 +96,6 @@ const App = (props) => {
 		window !== undefined ? () => window().document.body : undefined;
 	return (
 		<div className={classes.root}>
-			{/* <CssBaseline /> */}
 			<AppBar position="fixed" className={classes.appBar} color="secondary">
 				<Toolbar>
 					<IconButton
@@ -105,11 +107,6 @@ const App = (props) => {
 					>
 						<MenuIcon />
 					</IconButton>
-					<Typography variant="h6" noWrap style={{ cursor: 'pointer' }}>
-						<span style={{ color: 'slateblue' }}>FRA</span>
-						<span style={{ color: 'goldenrod' }}>NK</span>
-						<span style={{ color: 'pink' }}>PAD</span>
-					</Typography>
 				</Toolbar>
 			</AppBar>
 			<nav className={classes.drawer} aria-label="mailbox folders">
@@ -145,21 +142,7 @@ const App = (props) => {
 			</nav>
 			<main className={classes.content}>
 				<div className={classes.toolbar} />
-				<Typography paragraph>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-					dolor purus non enim praesent elementum facilisis leo vel. Risus at
-					ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-					quisque non tellus. Convallis convallis tellus id interdum velit
-					laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-					adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-					integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-					eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-					quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-					vivamus at augue. At augue eget arcu dictum varius duis at consectetur
-					lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-					faucibus et molestie ac.
-				</Typography>
+				<AboutPage />
 			</main>
 		</div>
 	);

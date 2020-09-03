@@ -1,7 +1,7 @@
 import React from 'react';
 import './homepage.styles.scss';
 
-const HomePage = () => {
+const AboutPage = () => {
 	return (
 		<div className="home">
 			<h1>Frank.Pad</h1>
@@ -33,4 +33,4 @@ const HomePage = () => {
 	);
 };
 
-export default HomePage;
+export default AboutPage;
