@@ -1,19 +1,14 @@
 import React from 'react';
 import './App.css';
-import AppBar from '@material-ui/core/AppBar';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MailIcon from '@material-ui/icons/Mail';
-import MenuIcon from '@material-ui/icons/Menu';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AboutPage from './pages/About';
 import Logo from './components/Logo';
@@ -46,6 +41,12 @@ const useStyles = makeStyles((theme) => ({
 	toolbar: theme.mixins.toolbar,
 	drawerPaper: {
 		width: drawerWidth,
+		// background: '#FAFCFF',
+		color: '#0C74DB',
+		// borderRight: '1px solid #E3DFC0',
+		border: 'none',
+		overflowX: 'hidden',
+		'box-shadow': '0 0 3px 6px #ecebeb',
 	},
 	content: {
 		flexGrow: 1,
@@ -65,25 +66,23 @@ const App = (props) => {
 
 	const drawer = (
 		<div>
-			<div className={classes.toolbar} />
 			<Logo />
 			<Divider />
 			<List>
 				{['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-					<ListItem button key={text}>
+					<ListItem button key={text} style={{ marginTop: '0.75rem' }}>
 						<ListItemIcon>
-							{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+							<MailIcon style={{ color: '#0C74DB' }} />
 						</ListItemIcon>
 						<ListItemText primary={text} />
 					</ListItem>
 				))}
 			</List>
-			<Divider />
 			<List>
 				{['All mail', 'Trash', 'Spam'].map((text, index) => (
-					<ListItem button key={text}>
+					<ListItem button key={text} style={{ marginTop: '0.75rem' }}>
 						<ListItemIcon>
-							{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+							<InboxIcon style={{ color: '#0C74DB' }} />
 						</ListItemIcon>
 						<ListItemText primary={text} />
 					</ListItem>
@@ -96,19 +95,6 @@ const App = (props) => {
 		window !== undefined ? () => window().document.body : undefined;
 	return (
 		<div className={classes.root}>
-			<AppBar position="fixed" className={classes.appBar} color="secondary">
-				<Toolbar>
-					<IconButton
-						color="inherit"
-						aria-label="open drawer"
-						edge="start"
-						onClick={handleDrawerToggle}
-						className={classes.menuButton}
-					>
-						<MenuIcon />
-					</IconButton>
-				</Toolbar>
-			</AppBar>
 			<nav className={classes.drawer} aria-label="mailbox folders">
 				{/* The implementation can be swapped with js to avoid SEO duplication of links. */}
 				<Hidden smUp implementation="css">
@@ -141,7 +127,6 @@ const App = (props) => {
 				</Hidden>
 			</nav>
 			<main className={classes.content}>
-				<div className={classes.toolbar} />
 				<AboutPage />
 			</main>
 		</div>

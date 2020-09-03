@@ -1,36 +1,98 @@
 .home {
 	padding: 1rem;
+	font-family: 'Open Sans', sans-serif;
+	margin-bottom: 1rem;
+	overflow-x: hidden;
 
-	.intro {
-		font-size: 18px;
+	.title {
+		text-align: center;
+		font-size: 30px;
 	}
-
-	.logo {
-		.outer {
-			width: 10vw;
-			height: 15vw;
-			border: 1px solid seagreen;
-			position: relative;
-			// animation: App-logo-spin infinite 20s linear;
+	.bio {
+		text-align: center;
+		font-size: 24px;
+		margin: 1rem;
+		.profile-img {
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+			box-shadow: 0 0 3px 7px #fafafa;
+			background-image: linear-gradient(
+				to top,
+				#fcc5e4 0%,
+				#fda34b 15%,
+				#ff7882 35%,
+				#c8699e 52%,
+				#7046aa 71%,
+				#0c1db8 87%,
+				#020f75 100%
+			);
+			display: inline-block;
 		}
+	}
 
-		.inner {
-			position: absolute;
-			left: -2.5vw;
-			top: 5vh;
-			width: 15vw;
-			height: 10vw;
-			border: 1px solid yellowgreen;
-			// animation: App-logo-spin infinite 20s linear;
+	.about {
+		margin: 0;
+		.stack {
+			padding: 1rem;
+			box-shadow: 0 0 3px 3px #ecebeb;
+			border-radius: 12px;
+			width: 400px;
+			min-height: 350px;
+			transition: all 0.1s ease-in;
+			font-size: 18px;
+			text-align: center;
+
+			&:hover {
+				box-shadow: 0 0 3px 6px #ecebeb;
+			}
 		}
 	}
-}
 
-@keyframes App-logo-spin {
-	from {
-		transform: rotate(0deg);
+	.fam {
+		color: darken($color: red, $amount: 3);
+		font-size: 24px;
 	}
-	to {
-		transform: rotate(360deg);
+
+	.glowtext {
+		font-size: 2.5rem;
+		padding: 1rem;
+		font-weight: bold;
+		font-family: 'Grandstander', cursive;
+		display: inline-block;
+
+		color: rgba($color: #000000, $alpha: 0.85);
+		text-align: center;
+		-webkit-animation: glow 1s ease-in-out infinite alternate;
+		-moz-animation: glow 1s ease-in-out infinite alternate;
+		animation: glow 1s ease-in-out infinite alternate,
+			fade 0.5s ease-in forwards;
+	}
+
+	mark {
+		background-color: white;
+		color: #13aa52;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+
+	@keyframes glow {
+		from {
+			text-shadow: 0 0 3px #fff, 0 0 5px #fff, 0 0 7px #13aa52, 0 0 4px #13aa52,
+				0 0 5px #13aa52, 0 0 6px #13aa52, 0 0 7px #13aa52;
+		}
+		to {
+			text-shadow: 0 0 2px #fff, 0 0 3px #05f76a, 0 0 4px #05f76a,
+				0 0 5px #05f76a, 0 0 6px #05f76a, 0 0 7px #05f76a, 0 0 8px #05f76a;
+		}
+	}
+
+	@keyframes fade {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
 	}
 }

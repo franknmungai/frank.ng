@@ -3,12 +3,13 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	margin-top: -50px;
 	cursor: pointer;
+	padding: 1rem;
 
 	.image {
-		width: 5.5vw;
-		height: 5.5vw;
+		width: 5vw;
+		height: 5vw;
+		border-radius: 50%;
 	}
 
 	.brand-text {
@@ -17,13 +18,13 @@
 		text-shadow: 4px 4px 4px #fafafa;
 
 		span:nth-child(1) {
-			color: steelblue;
+			color: yellowgreen;
 		}
 		span:nth-child(2) {
 			color: rgb(105, 7, 204);
 		}
 		span:nth-child(3) {
-			color: seagreen;
+			color: purple;
 		}
 	}
 }

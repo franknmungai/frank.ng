@@ -68,11 +68,11 @@ code {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	background: seagreen;
+	background: rgb(66, 202, 125);
 	border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-	background: rgb(54, 224, 128);
+	background: rgb(10, 110, 54);
 }
