@@ -4,16 +4,13 @@ import './homepage.styles.scss';
 const HomePage = () => {
 	return (
 		<div className="home">
-			<div className="logo">
-				<div className="outer">
-					<div className="inner">F</div>
-				</div>
-			</div>
 			<h1>Frank.Pad</h1>
+			<h1>Meet Frank</h1>
+			<img alt="Frank Blog owner" />
 			<p className="intro">
-				<h1>Meet Frank</h1>, a software developer and engineering student based
-				in Nairobi, Kenya. I created this blog to share my knowledge, concepts,
-				code, ideas, resources and jokes with friends such as you.
+				A software developer and engineering student based in Nairobi, Kenya. I
+				created this blog to share my knowledge, concepts, code, ideas,
+				resources and jokes with friends such as you.
 			</p>
 			<p className="stack">
 				I spent most of my time on web development and I am familiar with a
