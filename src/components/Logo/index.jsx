@@ -1,39 +1,20 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
+import './logo.styles.scss';
 
 const Logo = () => {
 	return (
-		<div
-			style={{
-				display: 'flex',
-				flexDirection: 'row',
-				alignItems: 'center',
-				justifyContent: 'center',
-				marginTop: '-50px',
-			}}
-		>
-			{/* <ListItemIcon> */}
+		<div className="logo">
 			<img
 				alt="logo"
 				src={require('../../assets/logo.png')}
-				style={{ width: '5.5vw', height: '5.5vw' }}
+				className="image"
 			/>
-			{/* </ListItemIcon> */}
-			{/* <ListItemText> */}
-			<Typography
-				variant="h6"
-				noWrap
-				style={{
-					cursor: 'pointer',
-					textAlign: 'center',
-					// marginTop: '-20px',
-				}}
-			>
-				<span style={{ color: 'slateblue' }}>FRA</span>
-				<span style={{ color: 'goldenrod' }}>NK</span>
-				<span style={{ color: 'blueviolet' }}>PAD</span>
-			</Typography>
-			{/* </ListItemText> */}
+
+			<div className="brand-text">
+				<span>Fra</span>
+				<span>nk</span>
+				<span>-ng</span>
+			</div>
 		</div>
 	);
 };
