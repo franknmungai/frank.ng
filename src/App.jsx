@@ -13,6 +13,7 @@ import AboutPage from './pages/About';
 import Logo from './components/Logo';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import ArticlesPage from './pages/Articles';
+import ProjectsPage from './pages/Projects';
 
 const drawerWidth = 240;
 
@@ -88,7 +89,7 @@ const App = (props) => {
 						container={container}
 						variant="temporary"
 						anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-						// onOpen={handleDrawerToggle}
+						onOpen={handleDrawerToggle}
 						open={mobileOpen}
 						onClose={handleDrawerToggle}
 						classes={{
@@ -114,8 +115,9 @@ const App = (props) => {
 				</Hidden>
 			</nav>
 			<main className={classes.content}>
-				{/* <AboutPage /> */}
+				<AboutPage />
 				<ArticlesPage />
+				<ProjectsPage />
 			</main>
 		</div>
 	);

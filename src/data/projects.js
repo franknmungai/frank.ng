@@ -1,8 +1,7 @@
 export default [
 	{
 		title: 'Create an online multiplayer Chess game with React and Node.js',
-		introduction:
-			'Learn React by creating a chess game. Master React hooks such as useState, useEffect, useCallback, useRef, useContext through this application',
+		introduction: 'Learn React by creating a chess game, using Hooks',
 		prerequisites: [
 			'Intermediate understanding of JavaScript',
 			'Basic React knowldge would be of benefit but is not required',
@@ -10,7 +9,7 @@ export default [
 			'Everything about web sockets will be explained',
 		],
 		duration: '6h',
-		level: 'Intermediate',
+		level: 'Beginner',
 		description: '',
 		topics: [
 			'React',
@@ -25,12 +24,12 @@ export default [
 	{
 		title: 'Create a Sudoku solver algorithm',
 		introduction:
-			'Learn and apply JavaScript Array methods such as filter, .flat, .includes to create a simple Sudoku solver',
+			'Apply JavaScript Array methods to create a simple Sudoku solver',
 		prerequisites: ['The Basics of JavaScript'],
 		duration: '1h',
 		level: 'Beginner',
 		description: '',
-		learning: ['Array methods such as .filter, .some, .flat and .flatMap'], //what you'll learn
+		topics: ['Array methods such as .filter, .some, .flat and .flatMap'], //what you'll learn
 		technologies: [],
 	},
 	{
@@ -41,7 +40,7 @@ export default [
 		duration: '25min',
 		level: 'Intermediate',
 		description: '',
-		learning: ['Node.js', 'firebase cloud storage'], //what you'll learn
+		topics: ['Node.js', 'firebase cloud storage'], //what you'll learn
 		technologies: ['Node.js', 'Firebase'],
 	},
 	{
@@ -51,7 +50,7 @@ export default [
 		duration: '25min',
 		level: 'Intermediate',
 		description: '',
-		learning: ['React', 'React hooks'], //what you'll learn
+		topics: ['React', 'React hooks'], //what you'll learn
 		technologies: ['React'],
 	},
 ];
