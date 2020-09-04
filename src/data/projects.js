@@ -7,12 +7,17 @@ export default [
 			'Intermediate understanding of JavaScript',
 			'Basic React knowldge would be of benefit but is not required',
 			'Node.js and npm basics',
-			'Eevrything about web sockets will be explained',
+			'Everything about web sockets will be explained',
 		],
 		duration: '6h',
 		level: 'Intermediate',
 		description: '',
-		topics: ['React', 'React hooks', 'Using web sockets with socket.io'], //what you'll learn
+		topics: [
+			'React',
+			'React hooks',
+			'Using web sockets with socket.io',
+			'CSS grid layouts',
+		], //what you'll learn
 		technologies: ['JavaScript', 'React', 'Node.js', 'Web sockets'],
 		tags: ['react', 'javascript', 'socket.io'],
 		subsections: [],

@@ -76,6 +76,7 @@ export default [
 		category: 'Humour',
 		duration: '1min',
 		body: 'image',
+		introduction: '',
 	},
 	{
 		title: 'Find the pythagorean triplets',
@@ -99,8 +100,8 @@ export default [
         `,
 	},
 	{
-		title: '',
-		category: '',
+		title: 'Course Prerequisites',
+		category: 'Trivia',
 		duration: '15min',
 		introduction: `
         You are given a hash table where the key is a course code, and the value is a list of all the course codes that are prerequisites for the key. Return a valid ordering in which we can complete the courses. If no such ordering exists, return NULL.
@@ -133,7 +134,7 @@ export default [
 	},
 	{
 		title: 'Handling file uploads',
-		category: ['Javascript', 'Firebase Cloud storage'],
+		category: 'Firebase Cloud storage',
 		duration: '20min',
 		introduction: `While creating web and mobile apps, file uploads is often a key feature in our app's design. We need to store some unstructured data from our users such as images for their profiles, or sometimes even files and documents. Today, we will be going through cloud storage as a great way to store unstructured data, and how we can handle file uploads from a react client (or any client for that matter) to a Node.js app, and store the data to Firebase Cloud storage, modify, update and even delete it. We will go over cloud storage and how ot works on a high level so that you can leverage its ease and flexibility in to handle your file upload needs`,
 	},
