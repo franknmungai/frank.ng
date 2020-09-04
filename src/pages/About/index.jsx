@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Fade from '@material-ui/core/Fade';
 import Grid from '@material-ui/core/Grid';
 import './homepage.styles.scss';
 
@@ -29,12 +28,8 @@ const AboutPage = () => {
 			<h2 className="title">Meet Frank</h2>
 
 			<div className="bio">
-				<span
-					alt="Frank Blog owner"
-					// src={require('../../assets/profile.png')}
-					className="profile-img"
-				/>
-				<p>A software developer, engineering student and Indie hacker</p>
+				<span alt="Frank Blog owner" className="profile-img" />
+				<p>A software developer, engineering student and indie hacker</p>
 				<p>
 					I created this blog to share my{' '}
 					<span className="glowtext"> {text[glowText]} </span>
@@ -45,7 +40,7 @@ const AboutPage = () => {
 			<Grid
 				container
 				spacing={6}
-				alignItems="center"
+				alignItems="stretch"
 				justify="center"
 				className="about"
 			>

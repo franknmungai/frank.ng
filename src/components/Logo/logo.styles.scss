@@ -14,17 +14,18 @@
 
 	.brand-text {
 		font-family: 'Tangerine', sans-serif;
+		// font-family: 'Open Sans', sans-serif;
 		font-size: 3rem;
 		text-shadow: 4px 4px 4px #fafafa;
 
 		span:nth-child(1) {
-			color: yellowgreen;
+			color: slateblue;
 		}
 		span:nth-child(2) {
-			color: rgb(105, 7, 204);
+			color: saddlebrown;
 		}
 		span:nth-child(3) {
-			color: purple;
+			color: seagreen;
 		}
 	}
 }
