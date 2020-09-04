@@ -2,26 +2,27 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import './project-item.styles.scss';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		maxWidth: 345,
+		maxWidth: 500,
+		// minHeight: 600,
 	},
 	media: {
-		height: 0,
+		height: '25%',
 		paddingTop: '56.25%', // 16:9
 	},
 	expand: {
@@ -34,9 +35,6 @@ const useStyles = makeStyles((theme) => ({
 	expandOpen: {
 		transform: 'rotate(180deg)',
 	},
-	avatar: {
-		backgroundColor: red[500],
-	},
 }));
 
 export default function ProjectItem({ project }) {
@@ -48,19 +46,33 @@ export default function ProjectItem({ project }) {
 	};
 
 	return (
-		<Card className={classes.root}>
-			<CardMedia
-				className={classes.media}
-				image={require('../../assets/logo.png')}
-				title="Paella dish"
-			/>
-			<CardContent>
-				<h2>{project.title}</h2>
-				<Typography variant="body2" color="textSecondary" component="p">
-					{project.introduction}
-				</Typography>
-			</CardContent>
-			<CardActions disableSpacing>
+		<Card className={classes.root} elevation={4}>
+			<CardActionArea>
+				<CardMedia
+					className={classes.media}
+					image={require('../../assets/logo.png')}
+					title="Paella dish"
+				/>
+				<CardContent>
+					<h4 className="title">{project.title}</h4>
+					<br />
+					<br />
+					<Typography variant="body1" color="textSecondary" component="p">
+						{project.introduction}
+					</Typography>
+					<br />
+					<div className="row">
+						<div>
+							<AccessTimeIcon /> <span>{project.duration}</span>
+						</div>
+						<br />
+						<Typography>
+							<span className="dot" /> <span>{project.level}</span>
+						</Typography>
+					</div>
+				</CardContent>
+			</CardActionArea>
+			<CardActions disableSpacing className={classes.buttons}>
 				<IconButton aria-label="add to favorites">
 					<FavoriteIcon />
 				</IconButton>
@@ -81,17 +93,17 @@ export default function ProjectItem({ project }) {
 			<Collapse in={expanded} timeout="auto" unmountOnExit>
 				<CardContent>
 					<Typography variant="subtitle1">What you need to know </Typography>
-					{project.prerequisites((prereq) => (
-						<Typography paragraph>{prereq}</Typography>
+					{project.prerequisites.map((prereq) => (
+						<Typography paragraph key={prereq}>
+							{prereq}
+						</Typography>
 					))}
 					<Typography variant="subtitle2">What you'll learn</Typography>
-					{project.learning.map((text) => (
-						<Typography paragraph>{text}</Typography>
+					{project.topics.map((text) => (
+						<Typography paragraph key={text}>
+							{text}
+						</Typography>
 					))}
-					<Typography>
-						Set aside off of the heat to let rest for 10 minutes, and then
-						serve.
-					</Typography>
 				</CardContent>
 			</Collapse>
 		</Card>
