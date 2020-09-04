@@ -8,10 +8,10 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AboutPage from './pages/About';
 import Logo from './components/Logo';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 
 const drawerWidth = 240;
 
@@ -25,25 +25,9 @@ const useStyles = makeStyles((theme) => ({
 			flexShrink: 0,
 		},
 	},
-	appBar: {
-		[theme.breakpoints.up('sm')]: {
-			width: `calc(100% - ${drawerWidth}px)`,
-			marginLeft: drawerWidth,
-		},
-	},
-	menuButton: {
-		marginRight: theme.spacing(2),
-		[theme.breakpoints.up('sm')]: {
-			display: 'none',
-		},
-	},
-	// necessary for content to be below app bar
-	toolbar: theme.mixins.toolbar,
 	drawerPaper: {
 		width: drawerWidth,
-		// background: '#FAFCFF',
 		color: '#0C74DB',
-		// borderRight: '1px solid #E3DFC0',
 		border: 'none',
 		overflowX: 'hidden',
 		'box-shadow': '0 0 3px 6px #ecebeb',
@@ -72,7 +56,7 @@ const App = (props) => {
 				{['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
 					<ListItem button key={text} style={{ marginTop: '0.75rem' }}>
 						<ListItemIcon>
-							<MailIcon style={{ color: '#0C74DB' }} />
+							<InboxIcon style={{ color: '#0C74DB' }} />
 						</ListItemIcon>
 						<ListItemText primary={text} />
 					</ListItem>
@@ -96,12 +80,14 @@ const App = (props) => {
 	return (
 		<div className={classes.root}>
 			<nav className={classes.drawer} aria-label="mailbox folders">
+				{/* <NavBar handleDrawerToggle={handleDrawerToggle} /> */}
 				{/* The implementation can be swapped with js to avoid SEO duplication of links. */}
 				<Hidden smUp implementation="css">
-					<Drawer
+					<SwipeableDrawer
 						container={container}
 						variant="temporary"
 						anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+						// onOpen={handleDrawerToggle}
 						open={mobileOpen}
 						onClose={handleDrawerToggle}
 						classes={{
@@ -112,7 +98,7 @@ const App = (props) => {
 						}}
 					>
 						{drawer}
-					</Drawer>
+					</SwipeableDrawer>
 				</Hidden>
 				<Hidden xsDown implementation="css">
 					<Drawer
