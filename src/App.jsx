@@ -12,6 +12,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AboutPage from './pages/About';
 import Logo from './components/Logo';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import ArticlesPage from './pages/Articles';
 
 const drawerWidth = 240;
 
@@ -113,7 +114,8 @@ const App = (props) => {
 				</Hidden>
 			</nav>
 			<main className={classes.content}>
-				<AboutPage />
+				{/* <AboutPage /> */}
+				<ArticlesPage />
 			</main>
 		</div>
 	);
