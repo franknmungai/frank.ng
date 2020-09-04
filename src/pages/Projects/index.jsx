@@ -3,12 +3,12 @@ import Grid from '@material-ui/core/Grid';
 import ProjectItem from '../../components/ProjectItem';
 import projects from '../../data/projects';
 
-const Blog = () => {
+const Projects = () => {
 	return (
-		<section>
+		<section className="root">
 			<Grid container spacing={4}>
 				{projects.map((project) => (
-					<Grid item xs={12} sm={12} md={6}>
+					<Grid item xs={12} sm={12} md={6} key={project.title}>
 						<ProjectItem project={project} />
 					</Grid>
 				))}
@@ -17,4 +17,4 @@ const Blog = () => {
 	);
 };
 
-export default Blog;
+export default Projects;

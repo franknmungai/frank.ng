@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Chip from '@material-ui/core/Chip';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import './articles.styles.scss';
+import CardActionArea from '@material-ui/core/CardActionArea';
 
 const Articles = () => {
 	const getColor = (category) => {
@@ -28,7 +29,11 @@ const Articles = () => {
 			<Grid container spacing={4}>
 				{articles.map((article) => (
 					<Grid item xs={12} sm={12} md={6} key={article.title}>
-						<Paper variant="outlined" className="articles">
+						<Paper
+							variant="outlined"
+							className="articles"
+							component={CardActionArea}
+						>
 							<h2 className="title">{article.title}</h2>
 							<br />
 							<br />
