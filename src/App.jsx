@@ -14,6 +14,8 @@ import Logo from './components/Logo';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import ArticlesPage from './pages/Articles';
 import ProjectsPage from './pages/Projects';
+import NavBar from './components/AppBar';
+import SocialLinks from './components/SocialLinks';
 
 const drawerWidth = 240;
 
@@ -53,6 +55,7 @@ const App = (props) => {
 	const drawer = (
 		<div>
 			<Logo />
+			<SocialLinks />
 			<List>
 				{['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
 					<ListItem key={text} style={{ marginTop: '0.75rem' }}>
@@ -81,7 +84,7 @@ const App = (props) => {
 	return (
 		<div className={classes.root}>
 			<nav className={classes.drawer} aria-label="mailbox folders">
-				{/* <NavBar handleDrawerToggle={handleDrawerToggle} /> */}
+				<NavBar handleDrawerToggle={handleDrawerToggle} />
 				{/* The implementation can be swapped with js to avoid SEO duplication of links. */}
 				<Hidden smUp implementation="css">
 					<SwipeableDrawer

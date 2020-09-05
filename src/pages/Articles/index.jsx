@@ -26,7 +26,7 @@ const Articles = () => {
 	return (
 		<div className="root">
 			<h1 className="title">Read...</h1>
-			<Grid container spacing={4}>
+			<Grid container spacing={4} justify="center" alignItems="center">
 				{articles.map((article) => (
 					<Grid item xs={12} sm={12} md={6} key={article.title}>
 						<Paper

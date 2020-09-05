@@ -1,19 +1,4 @@
-.nav {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	padding: 1rem;
-	max-width: 300px;
-	margin-bottom: 3rem;
-	width: 100vw;
-
-	.social-links {
-		display: flex;
-		justify-content: space-between;
-		justify-self: flex-end;
-
-		.social {
-			cursor: pointer;
-		}
-	}
+.nav-wrapper {
+	display: inline;
+	padding-left: 1rem;
 }
