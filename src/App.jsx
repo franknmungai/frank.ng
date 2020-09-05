@@ -53,10 +53,9 @@ const App = (props) => {
 	const drawer = (
 		<div>
 			<Logo />
-			<Divider />
 			<List>
 				{['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-					<ListItem button key={text} style={{ marginTop: '0.75rem' }}>
+					<ListItem key={text} style={{ marginTop: '0.75rem' }}>
 						<ListItemIcon>
 							<InboxIcon style={{ color: '#0C74DB' }} />
 						</ListItemIcon>

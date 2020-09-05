@@ -4,11 +4,7 @@ import './logo.styles.scss';
 const Logo = () => {
 	return (
 		<div className="logo">
-			<img
-				alt="logo"
-				src={require('../../assets/logo.png')}
-				className="image"
-			/>
+			<span className="profile-img" />
 
 			<div className="brand-text">
 				<span>Fra</span>
