@@ -3,17 +3,13 @@ import './App.css';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Pages from './pages';
 import Logo from './components/Logo';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import NavBar from './components/AppBar';
 import SocialLinks from './components/SocialLinks';
+import DrawerMenu from './components/DrawerMenu';
 
 const drawerWidth = 240;
 
@@ -56,26 +52,7 @@ const App = (props) => {
 			<SocialLinks />
 			<br />
 			<Divider />
-			<List>
-				{['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-					<ListItem key={text} style={{ marginTop: '0.75rem' }}>
-						<ListItemIcon>
-							<InboxIcon style={{ color: '#0C74DB' }} />
-						</ListItemIcon>
-						<ListItemText primary={text} />
-					</ListItem>
-				))}
-			</List>
-			<List>
-				{['All mail', 'Trash', 'Spam'].map((text, index) => (
-					<ListItem button key={text} style={{ marginTop: '0.75rem' }}>
-						<ListItemIcon>
-							<InboxIcon style={{ color: '#0C74DB' }} />
-						</ListItemIcon>
-						<ListItemText primary={text} />
-					</ListItem>
-				))}
-			</List>
+			<DrawerMenu />
 		</div>
 	);
 

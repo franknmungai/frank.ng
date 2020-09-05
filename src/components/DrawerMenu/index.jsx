@@ -1,36 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import List from '@material-ui/core/List';
+import menuItems from './menu-data';
 import './drawer-menu.styles.scss';
 
 const DrawerMenu = () => {
-	const menuItems = [
-		{
-			name: 'Articles',
-			icon: 'https://img.icons8.com/cute-clipart/64/000000/hot-article.png',
-		},
-		{
-			name: 'Learn and Practise',
-			icon: 'https://img.icons8.com/nolan/64/code.png',
-		},
-		{
-			name: 'Search',
-			icon: 'https://img.icons8.com/fluent/100/000000/search.png',
-		},
-		{
-			name: 'About',
-			icon: 'https://img.icons8.com/fluent/100/000000/user-male-circle.png',
-		},
-		{
-			name: 'Contact',
-			icon: 'https://img.icons8.com/nolan/64/share-2.png',
-		},
-	];
+	const [activeLink, setActiveLink] = useState();
+	const history = useHistory();
+
+	const handleClick = ({ name, url }) => {
+		console.log(name);
+
+		setActiveLink(name);
+		history.push(url);
+	};
+
+	const isActive = ({ name }) => name === activeLink;
 
 	return (
-		<div className="menu">
+		<List className="menu">
 			{menuItems.map((item) => (
-				<div className="menu-item"></div>
+				<ListItem
+					key={item.name}
+					className={`list-item ${isActive(item) && 'active'}`}
+					button
+					onClick={handleClick.bind(this, item)}
+				>
+					<ListItemIcon>
+						<img src={item.icon} alt={item.name} className="icon" />
+					</ListItemIcon>
+					<ListItemText primary={item.name} className="text" />
+				</ListItem>
 			))}
-		</div>
+		</List>
 	);
 };
 
