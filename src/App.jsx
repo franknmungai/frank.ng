@@ -9,11 +9,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import AboutPage from './pages/About';
+import Pages from './pages';
 import Logo from './components/Logo';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import ArticlesPage from './pages/Articles';
-import ProjectsPage from './pages/Projects';
 import NavBar from './components/AppBar';
 import SocialLinks from './components/SocialLinks';
 
@@ -56,6 +54,8 @@ const App = (props) => {
 		<div>
 			<Logo />
 			<SocialLinks />
+			<br />
+			<Divider />
 			<List>
 				{['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
 					<ListItem key={text} style={{ marginTop: '0.75rem' }}>
@@ -117,9 +117,7 @@ const App = (props) => {
 				</Hidden>
 			</nav>
 			<main className={classes.content}>
-				<AboutPage />
-				<ArticlesPage />
-				<ProjectsPage />
+				<Pages />
 			</main>
 		</div>
 	);
