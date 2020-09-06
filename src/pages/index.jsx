@@ -1,4 +1,4 @@
-// React Router configurtions
+// React Router configuration
 import React from 'react';
 import { Route } from 'react-router-dom';
 import AboutPage from './About';
