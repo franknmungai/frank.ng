@@ -1,0 +1,22 @@
+.root {
+	.heading {
+		text-align: center;
+		font-family: 'Grandstander', cursive;
+		font-size: 32px;
+		font-weight: bolder;
+	}
+	.text {
+		text-align: center;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 18px;
+	}
+	.contact {
+		padding: 1.5rem 2rem;
+		margin-top: 1.5rem 0;
+
+		.svg {
+			max-width: 400px;
+			max-height: 400px;
+		}
+	}
+}
