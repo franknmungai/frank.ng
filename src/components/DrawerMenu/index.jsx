@@ -16,7 +16,7 @@ const DrawerMenu = () => {
 		setActiveLink(location.pathname);
 	}, [location.pathname]);
 
-	const handleClick = ({ name, url }) => {
+	const handleClick = ({ url }) => {
 		setActiveLink(url);
 		history.push(url);
 	};

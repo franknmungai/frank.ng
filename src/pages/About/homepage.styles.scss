@@ -7,6 +7,7 @@
 	.title {
 		text-align: center;
 		font-size: 30px;
+		animation: comeToView 0.4s ease-in;
 	}
 	.bio {
 		text-align: center;
@@ -95,6 +96,17 @@
 		}
 		to {
 			opacity: 1;
+		}
+	}
+
+	@keyframes comeToView {
+		from {
+			opacity: 0;
+			transform: translate(-100px, -200px);
+		}
+		to {
+			opacity: 1;
+			transform: translate(0, 0);
 		}
 	}
 }
