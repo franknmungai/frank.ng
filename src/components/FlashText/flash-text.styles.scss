@@ -1,0 +1,35 @@
+.glowtext {
+	font-size: 2.5rem;
+	padding: 1rem;
+	font-weight: bold;
+	font-family: 'Grandstander', cursive;
+	display: inline-block;
+
+	color: rgba($color: #000000, $alpha: 0.85);
+	text-align: center;
+	// -webkit-animation: glow 1s ease-in-out infinite alternate;
+	// -moz-animation: glow 1s ease-in-out infinite alternate;
+	animation: fade 0.5s ease-in-out alternate;
+
+	text-shadow: 0 0 2px #fff, 0 0 3px #05f76a, 0 0 4px #05f76a, 0 0 5px #05f76a,
+		0 0 6px #05f76a, 0 0 7px #05f76a, 0 0 8px #05f76a;
+}
+@keyframes glow {
+	from {
+		text-shadow: 0 0 3px #fff, 0 0 5px #fff, 0 0 7px #13aa52, 0 0 4px #13aa52,
+			0 0 5px #13aa52, 0 0 6px #13aa52, 0 0 7px #13aa52;
+	}
+	to {
+		text-shadow: 0 0 2px #fff, 0 0 3px #05f76a, 0 0 4px #05f76a, 0 0 5px #05f76a,
+			0 0 6px #05f76a, 0 0 7px #05f76a, 0 0 8px #05f76a;
+	}
+}
+
+@keyframes fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

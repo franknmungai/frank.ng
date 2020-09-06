@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import './homepage.styles.scss';
+import FlashText from '../../components/FlashText';
 
 const AboutPage = () => {
-	const [glowText, setGlowText] = useState(0);
 	const text = [
 		'knowledge 📚',
 		'concepts 🎯',
@@ -12,17 +12,7 @@ const AboutPage = () => {
 		'resources 🎉',
 		'jokes 😁😁',
 	];
-	useEffect(() => {
-		const timer = setInterval(() => {
-			if (glowText < text.length - 1) {
-				setGlowText((state) => state + 1);
-			} else {
-				setGlowText(0);
-			}
-		}, 2500);
 
-		return () => clearInterval(timer);
-	}, [text.length, glowText, text]);
 	return (
 		<div className="home">
 			<h2 className="title">Meet Frank</h2>
@@ -31,8 +21,7 @@ const AboutPage = () => {
 				<span alt="Frank Blog owner" className="profile-img" />
 				<p>A software developer, engineering student and indie hacker</p>
 				<p>
-					I created this blog to share my{' '}
-					<span className="glowtext"> {text[glowText]} </span>
+					I created this blog to share my <FlashText text={text} />
 					with friends such as you.
 				</p>
 			</div>
