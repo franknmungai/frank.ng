@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 		color: '#0C74DB',
 		border: 'none',
 		overflowX: 'hidden',
-		'box-shadow': '0 0 3px 6px #ecebeb',
+		'box-shadow': '0 0 3px 4px #ecebeb',
 	},
 	content: {
 		flexGrow: 1,
@@ -49,6 +49,7 @@ const App = (props) => {
 	const drawer = (
 		<div>
 			<Logo />
+			<br />
 			<SocialLinks />
 			<br />
 			<Divider />

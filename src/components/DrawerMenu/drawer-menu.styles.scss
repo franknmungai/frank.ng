@@ -1,6 +1,7 @@
 .list-item {
 	padding: 0.9rem 1.5rem !important;
 	margin: 0.5rem 0 !important;
+	border-radius: 0 50px 50px 0 !important;
 	.icon {
 		width: 35px;
 		height: 35px;
@@ -14,6 +15,6 @@
 
 .active {
 	background-color: wheat !important;
-	border-radius: 0 50px 50px 0 !important;
+
 	// color: whitesmoke !important;
 }
