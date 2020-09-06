@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -9,12 +9,18 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import { ReactComponent as AccessTimeIcon } from '../../assets/clock.svg';
+import WhatshotIcon from '@material-ui/icons/Whatshot';
+import LaunchIcon from '@material-ui/icons/Launch';
 import './project-item.styles.scss';
+import {
+	List,
+	ListItem,
+	ListItemText,
+	ListItemAvatar,
+} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -39,11 +45,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ProjectItem({ project }) {
 	const classes = useStyles();
-	const [expanded, setExpanded] = React.useState(false);
+	const [expanded, setExpanded] = useState(false);
+	const [favorite, setFavorite] = useState(false);
 
 	const handleExpandClick = () => {
 		setExpanded(!expanded);
 	};
+
+	const handleSetFavorite = () => setFavorite((state) => !state);
 
 	return (
 		<Card className={classes.root} elevation={4}>
@@ -56,28 +65,35 @@ export default function ProjectItem({ project }) {
 				<CardContent>
 					<h4 className="title">{project.title}</h4>
 					<br />
-					<br />
 					<Typography variant="body1" color="textSecondary" component="p">
 						{project.introduction}
 					</Typography>
 					<br />
 					<div className="row">
-						<div>
-							<AccessTimeIcon /> <span>{project.duration}</span>
+						<div className="row">
+							<AccessTimeIcon />{' '}
+							<span className="time">{project.duration}</span>
 						</div>
-						<br />
 						<Typography>
-							<span className="dot" /> <span>{project.level}</span>
+							<span className="dot" />{' '}
+							<span className="level">{project.level}</span>
 						</Typography>
 					</div>
 				</CardContent>
 			</CardActionArea>
 			<CardActions disableSpacing className={classes.buttons}>
-				<IconButton aria-label="add to favorites">
-					<FavoriteIcon />
+				<IconButton
+					aria-label="add to favorites"
+					onClick={handleSetFavorite}
+					className={`${favorite && 'hot-icon-button'}`}
+				>
+					<WhatshotIcon className="hot-icon" />
 				</IconButton>
 				<IconButton aria-label="share">
 					<ShareIcon />
+				</IconButton>
+				<IconButton aria-label="share">
+					<LaunchIcon />
 				</IconButton>
 				<IconButton
 					className={clsx(classes.expand, {
@@ -92,18 +108,35 @@ export default function ProjectItem({ project }) {
 			</CardActions>
 			<Collapse in={expanded} timeout="auto" unmountOnExit>
 				<CardContent>
-					<Typography variant="subtitle1">What you need to know </Typography>
-					{project.prerequisites.map((prereq) => (
-						<Typography paragraph key={prereq}>
-							{prereq}
-						</Typography>
-					))}
-					<Typography variant="subtitle2">What you'll learn</Typography>
-					{project.topics.map((text) => (
-						<Typography paragraph key={text}>
-							{text}
-						</Typography>
-					))}
+					<Typography variant="subtitle1" className="text-center">
+						What you need to know{' '}
+					</Typography>
+					<List>
+						{project.prerequisites.map((prereq) => (
+							<ListItem className="list-item">
+								<ListItemAvatar>
+									<span className="dot" />
+								</ListItemAvatar>
+								<ListItemText>{prereq}</ListItemText>
+							</ListItem>
+						))}
+					</List>
+					<Typography variant="subtitle1" className="text-center">
+						What you'll learn
+					</Typography>
+					<List>
+						{project.topics.map((text) => (
+							<ListItem className="list-item">
+								<ListItemAvatar>
+									<span
+										className="dot"
+										style={{ backgroundColor: 'steelblue' }}
+									/>
+								</ListItemAvatar>
+								<ListItemText>{text}</ListItemText>
+							</ListItem>
+						))}
+					</List>
 				</CardContent>
 			</Collapse>
 		</Card>
