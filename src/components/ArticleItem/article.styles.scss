@@ -1,0 +1,49 @@
+.articles {
+	display: none;
+	margin: 1rem auto;
+	min-width: 250px;
+	min-height: 450px;
+	text-align: center;
+	padding: 1rem;
+	font-family: 'Kumbh Sans', sans-serif;
+	line-height: 2rem;
+	transition: all 0.2s ease-in;
+	font-size: 18px;
+	border: #6e60f9 solid 1px !important;
+	cursor: pointer;
+	.chip-duration {
+		border: #6e60f9 solid 1px;
+		color: #6e60f9;
+	}
+	&:hover {
+		background-color: #6e60f9;
+		color: white;
+		.chip-duration {
+			border: #fff solid 1px;
+			color: #fff;
+		}
+		mark {
+			color: whitesmoke;
+		}
+	}
+
+	.category {
+		text-transform: capitalize;
+		.dot {
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			background-color: slateblue;
+			&:hover {
+				background-color: white;
+			}
+			display: inline-block;
+			margin-right: 1rem;
+		}
+	}
+	mark {
+		color: #13aa52;
+		background: none;
+		text-decoration: underline;
+	}
+}

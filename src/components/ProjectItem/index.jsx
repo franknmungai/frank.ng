@@ -14,14 +14,13 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { ReactComponent as AccessTimeIcon } from '../../assets/clock.svg';
 import WhatshotIcon from '@material-ui/icons/Whatshot';
 import LaunchIcon from '@material-ui/icons/Launch';
-import './project-item.styles.scss';
-import {
-	List,
-	ListItem,
-	ListItemText,
-	ListItemAvatar,
-} from '@material-ui/core';
+import Tooltip from '@material-ui/core/Tooltip';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 
+import './project-item.styles.scss';
 const useStyles = makeStyles((theme) => ({
 	root: {
 		maxWidth: 500,
@@ -82,19 +81,26 @@ export default function ProjectItem({ project }) {
 				</CardContent>
 			</CardActionArea>
 			<CardActions disableSpacing className={classes.buttons}>
-				<IconButton
-					aria-label="add to favorites"
-					onClick={handleSetFavorite}
-					className={`${favorite && 'hot-icon-button'}`}
-				>
-					<WhatshotIcon className="hot-icon" />
-				</IconButton>
-				<IconButton aria-label="share">
-					<ShareIcon />
-				</IconButton>
-				<IconButton aria-label="share">
-					<LaunchIcon />
-				</IconButton>
+				<Tooltip title="Set as a favorite">
+					<IconButton
+						aria-label="add to favorites"
+						onClick={handleSetFavorite}
+						className={`${favorite && 'hot-icon-button'}`}
+					>
+						<WhatshotIcon className="hot-icon" />
+					</IconButton>
+				</Tooltip>
+				<Tooltip title="Share">
+					<IconButton aria-label="share">
+						<ShareIcon />
+					</IconButton>
+				</Tooltip>
+				<Tooltip title="Get started">
+					<IconButton aria-label="lauch">
+						<LaunchIcon />
+					</IconButton>
+				</Tooltip>
+
 				<IconButton
 					className={clsx(classes.expand, {
 						[classes.expandOpen]: expanded,
