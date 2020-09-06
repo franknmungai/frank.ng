@@ -4,7 +4,6 @@ import './flash-text.styles.scss';
 
 const FlashText = ({ text }) => {
 	const [glowText, setGlowText] = useState(0);
-	console.log(glowText);
 
 	useEffect(() => {
 		const timer = setInterval(() => {

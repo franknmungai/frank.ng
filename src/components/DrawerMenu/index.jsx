@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -10,15 +10,18 @@ import './drawer-menu.styles.scss';
 const DrawerMenu = () => {
 	const [activeLink, setActiveLink] = useState();
 	const history = useHistory();
+	const location = useLocation();
+
+	useEffect(() => {
+		setActiveLink(location.pathname);
+	}, [location.pathname]);
 
 	const handleClick = ({ name, url }) => {
-		console.log(name);
-
-		setActiveLink(name);
+		setActiveLink(url);
 		history.push(url);
 	};
 
-	const isActive = ({ name }) => name === activeLink;
+	const isActive = ({ url }) => url === activeLink || location.pathname === url;
 
 	return (
 		<List className="menu">

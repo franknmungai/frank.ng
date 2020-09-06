@@ -10,7 +10,7 @@ const Articles = () => {
 			<h1 className="title">Read...</h1>
 			<Grid container spacing={4} justify="center" alignItems="center">
 				{articles.map((article) => (
-					<ArticleItem article={article} />
+					<ArticleItem article={article} key={article.title} />
 				))}
 			</Grid>
 		</div>
