@@ -5,6 +5,7 @@ import AboutPage from './About';
 import Articles from './Articles';
 import Projects from './Projects';
 import Contact from './Contact';
+import SearchPage from './Search';
 
 export default () => (
 	<div>
@@ -12,5 +13,6 @@ export default () => (
 		<Route path="/articles" component={Articles} />
 		<Route path="/code" component={Projects} />
 		<Route path="/contact" component={Contact} />
+		<Route path="/search" component={SearchPage} />
 	</div>
 );
