@@ -119,7 +119,7 @@ export default function ProjectItem({ project }) {
 					</Typography>
 					<List>
 						{project.prerequisites.map((prereq) => (
-							<ListItem className="list-item">
+							<ListItem className="list-item" key={prereq}>
 								<ListItemAvatar>
 									<span className="dot" />
 								</ListItemAvatar>
@@ -132,7 +132,7 @@ export default function ProjectItem({ project }) {
 					</Typography>
 					<List>
 						{project.topics.map((text) => (
-							<ListItem className="list-item">
+							<ListItem className="list-item" key={text}>
 								<ListItemAvatar>
 									<span
 										className="dot"

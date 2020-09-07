@@ -1,4 +1,56 @@
-.search-svg {
-	max-width: 300px;
-	max-height: 300px;
+.root {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	.info {
+		margin: 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		.search-svg {
+			max-width: 350px;
+			max-height: 350px;
+		}
+
+		p {
+			margin: 1rem;
+			font-size: 22px;
+			font-family: 'Warnes' cursive;
+			text-align: center;
+		}
+	}
+
+	.focus {
+		animation-name: downwards;
+		animation-duration: 500ms;
+		animation-iteration-count: 1;
+		animation-direction: normal;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: forwards;
+		// animation: downward 500ms 1 normal ease-in-out forwards;
+
+		.info {
+			display: none !important;
+		}
+	}
+	.unfocus {
+		animation-name: downwards;
+		animation-duration: 500ms;
+		animation-iteration-count: 1;
+		animation-direction: reverse;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: forwards;
+		// animation: downward 500ms 1 normal ease-in-out forwards;
+	}
+	@keyframes downwards {
+		from {
+			margin-top: 1rem;
+		}
+
+		to {
+			margin-top: 200px;
+		}
+	}
 }

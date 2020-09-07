@@ -12,7 +12,7 @@ const FlashText = ({ text }) => {
 			} else {
 				setGlowText(0);
 			}
-		}, 2500);
+		}, 1880);
 
 		return () => clearInterval(timer);
 	}, [text.length, glowText, text]);

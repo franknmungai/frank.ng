@@ -27,6 +27,7 @@ const SocialLinks = () => {
 					src={link.src}
 					className="link"
 					onClick={() => window.open(link.account)}
+					key={link.account}
 				/>
 			))}
 		</div>
