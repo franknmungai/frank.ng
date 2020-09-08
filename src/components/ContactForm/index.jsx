@@ -44,6 +44,7 @@ const ContactForm = () => {
 				onChange={handleChange}
 				className="input"
 				fullWidth
+				type="email"
 			/>
 			<TextField
 				label="Name"
@@ -54,6 +55,7 @@ const ContactForm = () => {
 				onChange={handleChange}
 				className="input"
 				fullWidth
+				type="text"
 			/>
 			<TextField
 				label="Message"
@@ -65,6 +67,7 @@ const ContactForm = () => {
 				onChange={handleChange}
 				className="input"
 				fullWidth
+				type="text"
 			/>
 			<div className="form-action">
 				<Tooltip title="Cancel">

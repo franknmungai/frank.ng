@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory, useLocation } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -46,6 +47,7 @@ export default function ProjectItem({ project }) {
 	const classes = useStyles();
 	const [expanded, setExpanded] = useState(false);
 	const [favorite, setFavorite] = useState(false);
+	const history = useHistory();
 
 	const handleExpandClick = () => {
 		setExpanded(!expanded);
@@ -53,8 +55,17 @@ export default function ProjectItem({ project }) {
 
 	const handleSetFavorite = () => setFavorite((state) => !state);
 
+	function createSlug(value) {
+		return value
+			.replace(/[^a-z0-9_]+/gi, '-')
+			.replace(/^-|-$/g, '')
+			.toLowerCase();
+	}
+	const handleClick = () => {
+		history.push(`/article/${createSlug(project.title)}`);
+	};
 	return (
-		<Card className={classes.root} elevation={4}>
+		<Card className={classes.root} elevation={4} onClick={handleClick}>
 			<CardActionArea>
 				<CardMedia
 					className={classes.media}

@@ -10,21 +10,23 @@ const SearchField = ({ className = '', onFocus, onClickAway }) => {
 
 	return (
 		<ClickAwayListener onClickAway={onClickAway}>
-			<TextField
-				className={classes}
-				placeholder="Search"
-				type="search"
-				InputProps={{
-					startAdornment: (
-						<InputAdornment position="start">
-							<SearchIcon />
-						</InputAdornment>
-					),
-				}}
-				fullWidth
-				variant="outlined"
-				onFocus={onFocus}
-			/>
+			<form>
+				<TextField
+					className={classes}
+					placeholder="Search"
+					type="search"
+					InputProps={{
+						startAdornment: (
+							<InputAdornment position="start">
+								<SearchIcon />
+							</InputAdornment>
+						),
+					}}
+					fullWidth
+					variant="outlined"
+					onFocus={onFocus}
+				/>
+			</form>
 		</ClickAwayListener>
 	);
 };

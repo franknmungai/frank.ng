@@ -6,6 +6,7 @@ import Articles from './Articles';
 import Projects from './Projects';
 import Contact from './Contact';
 import SearchPage from './Search';
+import ComingSoon from './ComingSoon';
 
 export default () => (
 	<div>
@@ -14,5 +15,6 @@ export default () => (
 		<Route path="/code" component={Projects} />
 		<Route path="/contact" component={Contact} />
 		<Route path="/search" component={SearchPage} />
+		<Route path="/article/:id" exact component={ComingSoon} />
 	</div>
 );
