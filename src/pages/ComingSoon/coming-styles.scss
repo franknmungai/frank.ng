@@ -3,7 +3,7 @@
 		font-size: 2.4rem;
 		font-family: 'Grandstander', cursive;
 		text-align: center;
-		margin: 1.2rem 0;
+		margin: 1rem 0;
 	}
 	.subscribe-text {
 		font-size: 20.5px;
@@ -33,6 +33,14 @@
 				padding: 0.9rem 2.2rem;
 				margin-left: 1.5rem;
 			}
+		}
+		.subscribe-text {
+			font-size: 1.1rem;
+		}
+
+		.icon {
+			width: 32px;
+			height: 32px;
 		}
 	}
 }
