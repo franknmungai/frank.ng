@@ -1,0 +1,38 @@
+.root {
+	h1 {
+		font-size: 2.4rem;
+		font-family: 'Grandstander', cursive;
+		text-align: center;
+		margin: 1.2rem 0;
+	}
+	.subscribe-text {
+		font-size: 20.5px;
+		font-family: 'Open Sans', sans-serif;
+		text-align: center;
+		line-height: 2rem;
+	}
+
+	.subscribe-form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		.svg {
+			max-width: 350px;
+			max-height: 350px;
+		}
+		form {
+			margin: 1rem auto;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+
+			.btn {
+				padding: 0.9rem 2.2rem;
+				margin-left: 1.5rem;
+			}
+		}
+	}
+}
