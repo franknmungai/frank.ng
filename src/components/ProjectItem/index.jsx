@@ -65,8 +65,8 @@ export default function ProjectItem({ project }) {
 		history.push(`/article/${createSlug(project.title)}`);
 	};
 	return (
-		<Card className={classes.root} elevation={4} onClick={handleClick}>
-			<CardActionArea>
+		<Card className={classes.root} elevation={4}>
+			<CardActionArea onClick={handleClick}>
 				<CardMedia
 					className={classes.media}
 					image={require('../../assets/logo.png')}
