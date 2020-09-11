@@ -7,6 +7,7 @@ import Projects from './Projects';
 import Contact from './Contact';
 import SearchPage from './Search';
 import ComingSoon from './ComingSoon';
+// import Article from './Article';
 
 export default () => (
 	<div>
@@ -16,5 +17,6 @@ export default () => (
 		<Route path="/contact" component={Contact} />
 		<Route path="/search" component={SearchPage} />
 		<Route path="/article/:id" exact component={ComingSoon} />
+		<Route path="/read/:id" exact component={ComingSoon} />
 	</div>
 );

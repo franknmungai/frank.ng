@@ -1,6 +1,11 @@
 import articles from './data';
+import createSlug from '../projects/create-slug';
 
-const articlesReducer = (state = articles, action) => {
+const nextArticles = articles.map((article) => ({
+	...article,
+	slug: createSlug(article.title),
+}));
+const articlesReducer = (state = nextArticles, action) => {
 	switch (action.type) {
 		default:
 			return state;

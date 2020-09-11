@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Chip from '@material-ui/core/Chip';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
@@ -23,9 +24,16 @@ const ArticleItem = ({ article }) => {
 		}
 	};
 
+	const history = useHistory();
+	const navigate = () => history.push(`/read/${article.slug}`);
 	return (
 		<Grid item xs={12} sm={12} md={6} key={article.title}>
-			<Paper variant="outlined" className="articles" component={CardActionArea}>
+			<Paper
+				variant="outlined"
+				className="articles"
+				component={CardActionArea}
+				onClick={navigate}
+			>
 				<h2 className="title">{article.title}</h2>
 				<br />
 				<br />
