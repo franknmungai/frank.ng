@@ -1,9 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import ProjectItem from '../../components/ProjectItem';
-import projects from '../../data/projects';
 
 const Projects = () => {
+	const projects = useSelector((state) => state.projects);
 	return (
 		<section className="root">
 			<Grid container spacing={4}>

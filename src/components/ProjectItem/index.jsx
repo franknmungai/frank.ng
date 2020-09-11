@@ -55,14 +55,8 @@ export default function ProjectItem({ project }) {
 
 	const handleSetFavorite = () => setFavorite((state) => !state);
 
-	function createSlug(value) {
-		return value
-			.replace(/[^a-z0-9_]+/gi, '-')
-			.replace(/^-|-$/g, '')
-			.toLowerCase();
-	}
 	const handleClick = () => {
-		history.push(`/article/${createSlug(project.title)}`);
+		history.push(`/article/${project.slug}`);
 	};
 	return (
 		<Card className={classes.root} elevation={4}>
