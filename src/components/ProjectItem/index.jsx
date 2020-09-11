@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -22,6 +23,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 
 import './project-item.styles.scss';
+import { removeFavorite, addFavorite } from '../../redux/actions/favorites';
 const useStyles = makeStyles((theme) => ({
 	root: {
 		maxWidth: 500,
@@ -46,14 +48,18 @@ const useStyles = makeStyles((theme) => ({
 export default function ProjectItem({ project }) {
 	const classes = useStyles();
 	const [expanded, setExpanded] = useState(false);
-	const [favorite, setFavorite] = useState(false);
+	const favorite = useSelector((state) => state.favorites.includes(project.id));
+	const dispatch = useDispatch();
 	const history = useHistory();
 
 	const handleExpandClick = () => {
 		setExpanded(!expanded);
 	};
 
-	const handleSetFavorite = () => setFavorite((state) => !state);
+	const handleSetFavorite = () =>
+		favorite
+			? dispatch(removeFavorite(project.id))
+			: dispatch(addFavorite(project.id));
 
 	const handleClick = () => {
 		history.push(`/article/${project.slug}`);
@@ -101,7 +107,7 @@ export default function ProjectItem({ project }) {
 					</IconButton>
 				</Tooltip>
 				<Tooltip title="Get started">
-					<IconButton aria-label="lauch">
+					<IconButton aria-label="lauch" onClick={handleClick}>
 						<LaunchIcon />
 					</IconButton>
 				</Tooltip>

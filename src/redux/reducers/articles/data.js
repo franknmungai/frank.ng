@@ -61,7 +61,8 @@ export default [
 		category: 'Trivia',
 		duration: '10min',
 		introduction: `
-        Here's a fun question to work on: Flatten a nested array while accounting for varying levels of nesting.
+        Here's a fun question to work on: 
+        Flatten a nested array while accounting for varying levels of nesting.
 
         function steamrollArray(arr) {
             //fill this

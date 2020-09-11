@@ -6,6 +6,6 @@ export const addFavorite = (id) => ({
 });
 
 export const removeFavorite = (id) => ({
-	type: types.ADD_FAVORITE,
+	type: types.REMOVE_FAVORITE,
 	id,
 });
