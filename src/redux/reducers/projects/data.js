@@ -1,5 +1,6 @@
 export default [
 	{
+		id: '1',
 		title: 'Create an online multiplayer Chess game with React and Node.js',
 		introduction: 'Learn React by creating a chess game, using Hooks',
 		prerequisites: [
@@ -22,6 +23,7 @@ export default [
 		subsections: [],
 	},
 	{
+		id: '2',
 		title: 'Create a Sudoku solver algorithm',
 		introduction:
 			'Apply JavaScript Array methods to create a simple Sudoku solver',
@@ -36,6 +38,7 @@ export default [
 		technologies: [],
 	},
 	{
+		id: '3',
 		title: 'Handle file uploads',
 		introduction:
 			'Handle file uploads using Node.js and firebase cloud storage',
@@ -47,6 +50,7 @@ export default [
 		technologies: ['Node.js', 'Firebase'],
 	},
 	{
+		id: '4',
 		title: 'Create a minesweeper game in JavaScript and React',
 		introduction: 'Practice React by creating a minesweeper game',
 		prerequisites: ['React basics'],
