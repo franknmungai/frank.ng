@@ -70,7 +70,7 @@ export default function ProjectItem({ project }) {
 				<CardMedia
 					className={classes.media}
 					image={require('../../assets/logo.png')}
-					title="Paella dish"
+					title="Project image"
 				/>
 				<CardContent>
 					<h4 className="title">{project.title}</h4>
