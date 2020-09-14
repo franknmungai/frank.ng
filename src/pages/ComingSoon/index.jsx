@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -35,6 +35,11 @@ const ComingSoon = () => {
 		setName('');
 		setEmail('');
 	};
+
+	useEffect(() => {
+		const timerId = setTimeout(() => setResp(''), 4000);
+		return () => clearTimeout(timerId);
+	}, [resp]);
 	return (
 		<div className="root">
 			<h1>
