@@ -1,4 +1,5 @@
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -22,7 +23,7 @@ const persistConfig = {
 
 const store = createStore(
 	persistReducer(persistConfig, rootReducer),
-	composeWithDevTools()
+	composeWithDevTools(applyMiddleware(ReduxThunk))
 );
 export const persistor = persistStore(store);
 
