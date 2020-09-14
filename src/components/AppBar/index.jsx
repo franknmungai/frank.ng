@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme) => ({
 			display: 'none',
 		},
 		padding: '1rem',
+		position: 'relative',
+		top: '20px',
+		left: '20px',
 	},
 }));
 const NavBar = ({ handleDrawerToggle }) => {
