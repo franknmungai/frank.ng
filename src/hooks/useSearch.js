@@ -6,7 +6,16 @@ const useSearch = () => {
 	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
-		setPosts(articles.concat(projects));
+		const nextArticles = articles.map((article) => ({
+			...article,
+			type: 'Article',
+		}));
+		const nextProjects = projects.map((article) => ({
+			...article,
+			type: 'Project',
+		}));
+
+		setPosts(nextArticles.concat(nextProjects));
 	}, [articles, projects]);
 
 	const textSearch = (terms) => {

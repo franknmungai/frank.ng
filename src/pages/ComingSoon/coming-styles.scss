@@ -19,10 +19,10 @@
 		justify-content: center;
 
 		.svg {
-			max-width: 350px;
-			max-height: 350px;
+			max-width: 300px;
+			max-height: 300px;
 		}
-		form {
+		.form {
 			margin: 1rem auto;
 			display: flex;
 			flex-direction: row;
@@ -41,6 +41,31 @@
 		.icon {
 			width: 32px;
 			height: 32px;
+		}
+		img .circle {
+			border-radius: 50%;
+		}
+	}
+}
+@media (max-width: 800px) {
+	.root {
+		.form {
+			flex-direction: column !important;
+			justify-content: center !important;
+			align-items: center !important;
+		}
+		.btn {
+			margin-top: 1rem;
+		}
+	}
+}
+
+@media (min-width: 800px) {
+	.root {
+		.form {
+			.input {
+				margin-right: 1rem;
+			}
 		}
 	}
 }

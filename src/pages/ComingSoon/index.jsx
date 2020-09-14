@@ -4,6 +4,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import Button from '@material-ui/core/Button';
 import { ReactComponent as SubscribeSvg } from '../../assets/subscribe.svg';
 import MailIcon from '../../assets/mail.png';
+import NameIcon from '../../assets/name.png';
 import './coming-styles.scss';
 
 const ComingSoon = () => {
@@ -26,17 +27,33 @@ const ComingSoon = () => {
 			</p>
 			<div className="subscribe-form">
 				<SubscribeSvg className="svg" />
-				<form>
+				<form className="form">
+					<TextField
+						variant="outlined"
+						color="primary"
+						placeholder="First name"
+						type="text"
+						required
+						className="input"
+						InputProps={{
+							startAdornment: (
+								<InputAdornment position="start">
+									<img src={NameIcon} alt="mail" className="icon" />
+								</InputAdornment>
+							),
+						}}
+					/>
 					<TextField
 						variant="outlined"
 						color="primary"
 						placeholder="Email"
 						type="email"
 						required
+						className="input"
 						InputProps={{
 							startAdornment: (
 								<InputAdornment position="start">
-									<img src={MailIcon} alt="mail" className="icon" />
+									<img src={MailIcon} alt="mail" className="icon circle" />
 								</InputAdornment>
 							),
 						}}

@@ -1,12 +1,15 @@
 import * as types from '../../actions/action-types';
 const initialState = {
-	light: true,
+	email: '',
+	theme: {
+		light: true,
+	},
 };
 
 export default (state = initialState, action) => {
 	switch (action.type) {
 		case types.TOGGLE_THEME:
-			return { light: !state.light };
+			return { ...state, theme: { light: !state.theme.light } };
 
 		default:
 			return state;

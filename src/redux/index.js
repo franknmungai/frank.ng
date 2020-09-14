@@ -5,19 +5,19 @@ import storage from 'redux-persist/lib/storage';
 import favoritesReducer from './reducers/favorites';
 import articlesReducer from './reducers/articles';
 import projectsReducer from './reducers/projects';
-import userTheme from './reducers/user-theme';
+import userReducer from './reducers/user';
 
 const rootReducer = combineReducers({
 	favorites: favoritesReducer,
 	articles: articlesReducer,
 	projects: projectsReducer,
-	theme: userTheme,
+	user: userReducer,
 });
 
 const persistConfig = {
 	key: 'root', //root reducer
 	storage, //localstorage object
-	whitelist: ['theme', 'favorites'], //reducers we want to persist
+	whitelist: ['user', 'favorites'], //reducers we want to persist
 };
 
 const store = createStore(
