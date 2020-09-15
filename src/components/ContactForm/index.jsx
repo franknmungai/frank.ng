@@ -1,10 +1,12 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import SendIcon from '@material-ui/icons/Send';
 import ClearIcon from '@material-ui/icons/Clear';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import './contact-form.styles.scss';
+import { sendMessage } from '../../redux/actions/user';
+import Ternary from '../Ternary';
 
 const initialState = {
 	name: '',
@@ -13,6 +15,9 @@ const initialState = {
 };
 
 const ContactForm = () => {
+	const [resp, setResp] = useState();
+	const [errors, setErrors] = useState([]);
+
 	const formReducer = (state = initialState, action) => {
 		switch (action.type) {
 			case 'TEXT_CHANGE':
@@ -33,8 +38,26 @@ const ContactForm = () => {
 
 	const clearForm = () => dispatch({ type: 'RESET' });
 
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+
+		try {
+			const resp = await sendMessage(formState);
+			setResp(resp);
+		} catch (error) {
+			setErrors(error);
+		}
+	};
 	return (
-		<form className="form">
+		<form className="form" onSubmit={handleSubmit}>
+			<Ternary condition={resp} fallback="">
+				<p className="success">{resp}</p>
+			</Ternary>
+			<Ternary condition={errors.length} fallback="">
+				{errors.map((error) => (
+					<p className="error">{error}</p>
+				))}
+			</Ternary>
 			<TextField
 				label="Email"
 				name="email"
@@ -76,7 +99,7 @@ const ContactForm = () => {
 					</IconButton>
 				</Tooltip>
 				<Tooltip title="Send">
-					<IconButton>
+					<IconButton type="submit">
 						<SendIcon color="primary" />
 					</IconButton>
 				</Tooltip>

@@ -45,3 +45,18 @@ export const unsubscribe = (email) => async (dispatch) => {
 	}
 	dispatch(cancelSubscription());
 };
+
+export const sendMessage = async (message) => {
+	const resp = await fetch(types.BASE_URL + '/message', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(message),
+	});
+	const { errors, success } = await resp.json();
+	if (!resp.ok) {
+		throw errors;
+	}
+	return success;
+};
