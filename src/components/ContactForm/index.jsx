@@ -4,6 +4,7 @@ import SendIcon from '@material-ui/icons/Send';
 import ClearIcon from '@material-ui/icons/Clear';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import './contact-form.styles.scss';
 import { sendMessage } from '../../redux/actions/user';
 import Ternary from '../Ternary';
@@ -17,6 +18,7 @@ const initialState = {
 const ContactForm = () => {
 	const [resp, setResp] = useState();
 	const [errors, setErrors] = useState([]);
+	const [loading, setLoading] = useState(false);
 
 	const formReducer = (state = initialState, action) => {
 		switch (action.type) {
@@ -40,6 +42,7 @@ const ContactForm = () => {
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
+		setLoading(true);
 
 		try {
 			const resp = await sendMessage(formState);
@@ -47,6 +50,7 @@ const ContactForm = () => {
 		} catch (error) {
 			setErrors(error);
 		}
+		setLoading(false);
 	};
 	return (
 		<form className="form" onSubmit={handleSubmit}>
@@ -98,11 +102,16 @@ const ContactForm = () => {
 						<ClearIcon className="cancel" />
 					</IconButton>
 				</Tooltip>
-				<Tooltip title="Send">
-					<IconButton type="submit">
-						<SendIcon color="primary" />
-					</IconButton>
-				</Tooltip>
+				<Ternary
+					condition={!loading}
+					fallback={<CircularProgress color="primary" />}
+				>
+					<Tooltip title="Send">
+						<IconButton type="submit">
+							<SendIcon color="primary" />
+						</IconButton>
+					</Tooltip>
+				</Ternary>
 			</div>
 		</form>
 	);
