@@ -1,5 +1,4 @@
-import React from 'react';
-import './App.css';
+import React, { useState, useEffect } from 'react';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
@@ -10,6 +9,8 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import NavBar from './components/AppBar';
 import SocialLinks from './components/SocialLinks';
 import DrawerMenu from './components/DrawerMenu';
+import './App.scss';
+import { useSelector } from 'react-redux';
 
 const drawerWidth = 240;
 
@@ -30,17 +31,34 @@ const useStyles = makeStyles((theme) => ({
 		overflowX: 'hidden',
 		'box-shadow': '0 0 3px 4px #ecebeb',
 	},
+	darkModeDrawerPaper: {
+		width: drawerWidth,
+		color: '#f4f4f4 !important',
+		border: 'none !important',
+		overflowX: 'hidden !important',
+		'box-shadow': '0 0 3px 4px #000 !important',
+		background: '#1a1a2e !important',
+	},
 	content: {
 		flexGrow: 1,
 		padding: theme.spacing(3),
 	},
 }));
 
+let themeStyles;
 const App = (props) => {
 	const { window } = props;
 	const classes = useStyles();
 	const theme = useTheme();
-	const [mobileOpen, setMobileOpen] = React.useState(false);
+	const [mobileOpen, setMobileOpen] = useState(false);
+	const dark = useSelector((state) => state.user.theme === 'dark'); //todo change this to 'dark'
+
+	useEffect(() => {
+		if (dark) {
+			themeStyles = import('./App-dark.styles.scss');
+			console.log(themeStyles);
+		}
+	}, [dark]);
 
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
@@ -61,7 +79,7 @@ const App = (props) => {
 		window !== undefined ? () => window().document.body : undefined;
 	return (
 		<div className={classes.root}>
-			<nav className={classes.drawer} aria-label="mailbox folders">
+			<nav className={classes.drawer}>
 				<NavBar handleDrawerToggle={handleDrawerToggle} />
 				{/* The implementation can be swapped with js to avoid SEO duplication of links. */}
 				<Hidden smUp implementation="css">
@@ -73,7 +91,7 @@ const App = (props) => {
 						open={mobileOpen}
 						onClose={handleDrawerToggle}
 						classes={{
-							paper: classes.drawerPaper,
+							paper: dark ? classes.darkModeDrawerPaper : classes.drawerPaper,
 						}}
 						ModalProps={{
 							keepMounted: true, // Better open performance on mobile.

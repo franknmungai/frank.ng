@@ -1,16 +1,15 @@
 import * as types from '../../actions/action-types';
+import { updateTheme } from './utils';
 const initialState = {
 	email: '',
 	subscribed: false,
-	theme: {
-		light: true,
-	},
+	theme: 'light',
 };
 
 export default (state = initialState, action) => {
 	switch (action.type) {
 		case types.TOGGLE_THEME:
-			return { ...state, theme: { light: !state.theme.light } };
+			return { ...state, theme: updateTheme(state) };
 		case types.CREATE_SUBSCRIPTION:
 			return {
 				...state,
