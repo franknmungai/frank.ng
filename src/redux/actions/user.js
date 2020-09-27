@@ -56,6 +56,8 @@ export const sendMessage = async (message) => {
 	});
 	const { errors, success } = await resp.json();
 	if (!resp.ok) {
+		console.log(errors);
+
 		throw errors;
 	}
 	return success;

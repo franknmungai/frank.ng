@@ -27,7 +27,6 @@ import { removeFavorite, addFavorite } from '../../redux/actions/favorites';
 const useStyles = makeStyles((theme) => ({
 	root: {
 		maxWidth: 500,
-		// minHeight: 600,
 	},
 	media: {
 		height: '25%',

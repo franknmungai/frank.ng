@@ -37,7 +37,7 @@ const ComingSoon = () => {
 	};
 
 	useEffect(() => {
-		const timerId = setTimeout(() => setResp(''), 4000);
+		const timerId = setTimeout(() => setResp(''), 6000);
 		return () => clearTimeout(timerId);
 	}, [resp]);
 	return (

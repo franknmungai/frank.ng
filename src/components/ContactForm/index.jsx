@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer, useState, useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
 import SendIcon from '@material-ui/icons/Send';
 import ClearIcon from '@material-ui/icons/Clear';
@@ -14,25 +14,24 @@ const initialState = {
 	email: '',
 	message: '',
 };
-
+const formReducer = (state = initialState, action) => {
+	switch (action.type) {
+		case 'TEXT_CHANGE':
+			return {
+				...state,
+				[action.name]: action.value,
+			};
+		case 'RESET':
+			return initialState;
+		default:
+			return state;
+	}
+};
 const ContactForm = () => {
 	const [resp, setResp] = useState();
 	const [errors, setErrors] = useState([]);
 	const [loading, setLoading] = useState(false);
 
-	const formReducer = (state = initialState, action) => {
-		switch (action.type) {
-			case 'TEXT_CHANGE':
-				return {
-					...state,
-					[action.name]: action.value,
-				};
-			case 'RESET':
-				return initialState;
-			default:
-				return state;
-		}
-	};
 	const [formState, dispatch] = useReducer(formReducer, initialState);
 
 	const handleChange = ({ target }) =>
@@ -51,7 +50,13 @@ const ContactForm = () => {
 			setErrors(error);
 		}
 		setLoading(false);
+		clearForm();
 	};
+
+	useEffect(() => {
+		const timer = setTimeout(() => setResp(''), 6000);
+		return () => clearTimeout(timer);
+	}, [resp]);
 	return (
 		<form className="form" onSubmit={handleSubmit}>
 			<Ternary condition={resp} fallback="">
@@ -59,7 +64,7 @@ const ContactForm = () => {
 			</Ternary>
 			<Ternary condition={errors.length} fallback="">
 				{errors.map((error) => (
-					<p className="error">{error}</p>
+					<p className="error">{error.message}</p>
 				))}
 			</Ternary>
 			<TextField
@@ -95,6 +100,7 @@ const ContactForm = () => {
 				className="input"
 				fullWidth
 				type="text"
+				required
 			/>
 			<div className="form-action">
 				<Tooltip title="Cancel">
@@ -104,7 +110,7 @@ const ContactForm = () => {
 				</Tooltip>
 				<Ternary
 					condition={!loading}
-					fallback={<CircularProgress color="primary" />}
+					fallback={<CircularProgress color="primary" size={24} />}
 				>
 					<Tooltip title="Send">
 						<IconButton type="submit">

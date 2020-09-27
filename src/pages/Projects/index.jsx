@@ -7,7 +7,7 @@ const Projects = () => {
 	const projects = useSelector((state) => state.projects);
 	return (
 		<section className="root">
-			<Grid container spacing={4} justify="center" alignItems="center">
+			<Grid container spacing={4}>
 				{projects.map((project) => (
 					<Grid item xs={12} sm={12} md={6} key={project.title}>
 						<ProjectItem project={project} />
