@@ -97,9 +97,9 @@ const AboutPage = () => {
 						</object>
 						<p>
 							I spend most of my free time listening to <mark>music </mark>,
-							writing <mark>sonnets </mark>, reading personal growth{' '}
-							<mark>books </mark> and socializing with my <mark>family </mark>{' '}
-							and
+							writing <mark>sonnets </mark>, <mark>juggling,</mark> reading
+							personal growth <mark>books </mark> and socializing with my{' '}
+							<mark>family </mark> and
 							<mark> friends </mark> <span className="fam">❤</span>
 						</p>
 					</div>
