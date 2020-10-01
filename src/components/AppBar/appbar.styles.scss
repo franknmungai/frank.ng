@@ -1,4 +1,22 @@
 .nav-wrapper {
-	display: inline;
+	display: inline-block;
 	padding-left: 1rem;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	border: 1px solid rgb(74, 255, 152);
+	padding: 2rem;
+	position: relative;
+	top: 20px;
+	left: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 0 7px 5px #e6e3e3; //rgb(74, 255, 152);
+}
+
+@media (min-width: 600px) {
+	.nav-wrapper {
+		display: none;
+	}
 }

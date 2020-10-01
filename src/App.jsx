@@ -11,6 +11,11 @@ import SocialLinks from './components/SocialLinks';
 import DrawerMenu from './components/DrawerMenu';
 import './App.scss';
 import { useSelector } from 'react-redux';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import Zoom from '@material-ui/core/Zoom';
+import Fab from '@material-ui/core/Fab';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import { Toolbar } from '@material-ui/core';
 
 const drawerWidth = 240;
 
@@ -42,6 +47,11 @@ const useStyles = makeStyles((theme) => ({
 	content: {
 		flexGrow: 1,
 		padding: theme.spacing(3),
+	},
+	scrollIntoView: {
+		position: 'fixed',
+		bottom: theme.spacing(2),
+		right: theme.spacing(2),
 	},
 }));
 
@@ -80,7 +90,6 @@ const App = (props) => {
 	return (
 		<div className={classes.root}>
 			<nav className={classes.drawer}>
-				<NavBar handleDrawerToggle={handleDrawerToggle} />
 				{/* The implementation can be swapped with js to avoid SEO duplication of links. */}
 				<Hidden smUp implementation="css">
 					<SwipeableDrawer
@@ -113,10 +122,36 @@ const App = (props) => {
 				</Hidden>
 			</nav>
 			<main className={classes.content}>
+				<Toolbar id="scroll-to-top" />
+				<NavBar handleDrawerToggle={handleDrawerToggle} />
 				<Pages />
 			</main>
+			<ScrollTop />
 		</div>
 	);
 };
+const ScrollTop = () => {
+	const trigger = useScrollTrigger({
+		disableHysteresis: true,
+		threshold: 100,
+	});
 
+	const classes = useStyles();
+
+	const handleClick = () => {
+		const anchor = document.querySelector('#scroll-to-top');
+
+		if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+	};
+
+	return (
+		<Zoom in={trigger}>
+			<div onClick={handleClick} className={classes.scrollIntoView}>
+				<Fab color="primary" size="large" aria-label="scroll back to top">
+					<KeyboardArrowUpIcon size="24px" />
+				</Fab>
+			</div>
+		</Zoom>
+	);
+};
 export default App;
