@@ -21,6 +21,7 @@ export default [
 		technologies: ['JavaScript', 'React', 'Node.js', 'Web sockets'],
 		tags: ['react', 'javascript', 'socket.io'],
 		subsections: [],
+		content: require('../../../content/articles/prototypes.md'),
 	},
 	{
 		id: '2',
